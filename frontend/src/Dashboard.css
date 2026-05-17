@@ -1,0 +1,210 @@
+/* Dashboard.css - V3 */
+
+/* Container & Sidebar (Same as before) */
+:root {
+  --bg-dark: #0f1115;
+  --bg-card: #1c1f26;
+  --bg-card-hover: #22262e;
+  --text-main: #ffffff;
+  --text-muted: #8a93a6;
+  --cyan: #00e5ff;
+  --green: #00e676;
+  --red: #ff5252;
+  --border-color: #2a2e39;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: var(--bg-dark);
+  color: var(--text-main);
+  overflow-x: hidden;
+}
+
+.dashboard-container {
+  display: flex;
+  min-height: 100vh;
+}
+
+.sidebar {
+  width: 250px;
+  background-color: var(--bg-dark);
+  border-right: 1px solid var(--border-color);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  height: 100vh;
+}
+
+.logo-section h2 { color: var(--cyan); font-size: 20px; letter-spacing: 1px; }
+.logo-section span { color: var(--text-muted); font-size: 10px; letter-spacing: 2px; }
+
+.side-nav { margin-top: 40px; flex-grow: 1; }
+.nav-item {
+  display: flex; align-items: center; gap: 12px; text-decoration: none;
+  color: var(--text-muted); padding: 12px 16px; border-radius: 8px;
+  margin-bottom: 8px; transition: all 0.3s ease;
+}
+.nav-item:hover, .nav-item.active {
+  background-color: rgba(0, 229, 255, 0.1); color: var(--cyan); border-right: 3px solid var(--cyan);
+}
+
+.user-profile-mini {
+  display: flex; align-items: center; gap: 12px; padding-top: 20px;
+  border-top: 1px solid var(--border-color);
+}
+.avatar { width: 40px; height: 40px; background-color: #444; border-radius: 50%; }
+.user-info h4 { font-size: 14px; }
+.user-info p { font-size: 12px; color: var(--text-muted); }
+
+/* Main Content - REVISED FOR BETTER CONTROL */
+.main-content {
+  margin-left: 250px; /* Sidebar ki width */
+  flex-grow: 1;
+  padding: 30px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  /* Yaha max-width add kiya hai taaki content bohot zyada na faile */
+  max-width: 1200px;
+}
+
+/* Top Bar & Header */
+.top-bar { display: flex; justify-content: space-between; align-items: center; }
+.search-bar {
+  background-color: var(--bg-card); border: 1px solid var(--border-color);
+  border-radius: 8px; padding: 10px 16px; display: flex; align-items: center; gap: 10px; width: 400px;
+}
+.search-bar input { background: none; border: none; color: white; width: 100%; outline: none; }
+
+.top-actions { display: flex; align-items: center; gap: 20px; }
+.system-status { color: var(--green); font-size: 12px; display: flex; align-items: center; gap: 6px; }
+.dot { width: 8px; height: 8px; background-color: var(--green); border-radius: 50%; box-shadow: 0 0 8px var(--green); }
+
+.header-section { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 10px; }
+.subtitle { color: var(--text-muted); font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; }
+.header-section h1 { font-size: 32px; margin-top: 5px; }
+
+/* REVISED ROW 1: SCORE & QUICK STATS */
+.grid-row-1 {
+  display: flex;
+  gap: 24px;
+  /* Flex direction set to row for side-by-side alignment */
+  flex-direction: row;
+}
+
+.hero-card {
+  /* Hero card ki width fixed rakhi hai taaki stretch na ho */
+  flex: 0 0 550px; 
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.hero-content h2 { margin: 8px 0 16px 0; }
+.hero-content p { color: var(--text-muted); font-size: 14px; margin-bottom: 24px; line-height: 1.5; }
+.score-stats { display: flex; gap: 40px; }
+.score-stats h3 { font-size: 24px; }
+.score-stats span { font-size: 14px; color: var(--text-muted); }
+
+/* Progress Ring CSS Trick */
+.progress-ring {
+  width: 150px; height: 150px; border-radius: 50%;
+  background: conic-gradient(var(--cyan) 84%, #333 84%);
+  display: flex; flex-direction: column; align-items: center; justify-content: center; position: relative;
+}
+.progress-ring::before {
+  content: ""; position: absolute; width: 130px; height: 130px;
+  background-color: var(--bg-card); border-radius: 50%;
+}
+.ring-value { position: relative; font-size: 36px; font-weight: bold; color: white; }
+.ring-label { position: relative; font-size: 10px; color: var(--text-muted); letter-spacing: 1px; }
+
+/* Quick Stats Grid - REVISED */
+.quick-stats-grid {
+  flex: 1; /* Bachi hui width fill karega */
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+/* Stat Cards (Fitness Level, Injury Risk etc.) - THE FIX IS HERE */
+.stat-card {
+  background-color: var(--bg-card) !important; /* Forcefully applying background */
+  border: 1px solid var(--border-color) !important; /* Forcefully applying border */
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start; /* Align text to the left */
+}
+
+.stat-icon { font-size: 20px; margin-bottom: 8px; }
+
+/* ROW 2: INSIGHTS & CONSISTENCY - REVISED FOR CONSISTENCY */
+.grid-row-2 {
+  display: flex;
+  gap: 24px;
+}
+
+.insights-card {
+  flex: 0 0 550px; /* Same width as hero-card for alignment */
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 24px;
+}
+
+.consistency-card {
+  flex: 1; /* Fills remaining space */
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 24px;
+}
+
+/* Rest of the styling remains the same */
+.card-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+.badge { background-color: rgba(0, 229, 255, 0.1); color: var(--cyan); padding: 4px 8px; border-radius: 4px; font-size: 10px; font-weight: bold; }
+
+.insight-item { padding-left: 16px; border-left: 2px solid; margin-bottom: 20px; }
+.border-green { border-color: var(--green); }
+.border-cyan { border-color: var(--cyan); }
+.border-red { border-color: var(--red); }
+.insight-top { display: flex; justify-content: space-between; margin-bottom: 6px; }
+.insight-top h4 { font-size: 12px; letter-spacing: 1px; }
+.insight-top span { font-size: 12px; color: var(--text-muted); }
+.insight-item p { font-size: 13px; color: #ddd; line-height: 1.4; }
+.btn-text { background: none; border: none; color: var(--cyan); font-weight: bold; cursor: pointer; margin-top: 10px; }
+
+.legend { display: flex; gap: 12px; font-size: 10px; color: var(--text-muted); }
+.heatmap-container { display: grid; grid-template-columns: repeat(30, 1fr); gap: 4px; margin-bottom: 24px; }
+.heat-square { width: 100%; aspect-ratio: 1; border-radius: 2px; }
+.level-0 { background-color: #2a2e39; }
+.level-1 { background-color: rgba(0, 229, 255, 0.3); }
+.level-2 { background-color: rgba(0, 229, 255, 0.6); }
+.level-3 { background-color: var(--cyan); }
+.streak-stats { display: flex; justify-content: space-between; text-align: center; }
+.streak-stats p { font-size: 11px; color: var(--text-muted); margin-bottom: 4px; }
+.streak-stats h3 { font-size: 20px; }
+
+/* Text Utilities */
+.text-cyan { color: var(--cyan); }
+.text-green { color: var(--green); }
+.text-red { color: var(--red); }
+
+/* Buttons */
+.header-buttons { display: flex; gap: 10px; }
+.btn-primary { background-color: var(--cyan); color: #000; border: none; padding: 10px 20px; border-radius: 8px; font-weight: 600; cursor: pointer; }
+.btn-secondary { background-color: transparent; color: white; border: 1px solid var(--border-color); padding: 10px 20px; border-radius: 8px; font-weight: 600; cursor: pointer; }

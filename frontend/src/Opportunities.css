@@ -1,0 +1,87 @@
+/* =========================================
+   Base Variables
+========================================= */
+:root {
+  --bg-dark: #0f1115;
+  --bg-card: #1c1f26;
+  --cyan: #00e5ff;
+  --green: #00e676;
+  --text-main: #ffffff;
+  --text-muted: #8a93a6;
+  --border-color: #2a2e39;
+}
+
+.main-content { margin-left: 250px; flex-grow: 1; padding: 30px 40px; width: calc(100% - 250px); box-sizing: border-box; }
+.text-cyan { color: var(--cyan); } .text-green { color: var(--green); } .text-muted { color: var(--text-muted); }
+.card { background-color: var(--bg-card); border: 1px solid var(--border-color); border-radius: 16px; padding: 24px; }
+
+/* Filter Buttons */
+.filter-buttons { display: flex; gap: 12px; margin-bottom: 30px; flex-wrap: wrap; }
+.opp-filter-btn { background-color: rgba(255, 255, 255, 0.05); color: var(--text-muted); border: 1px solid var(--border-color); padding: 10px 20px; border-radius: 20px; font-size: 13px; font-weight: bold; cursor: pointer; transition: 0.3s;}
+.opp-filter-btn:hover { background-color: rgba(255, 255, 255, 0.1); }
+.opp-filter-btn.active { background-color: var(--cyan); color: #000; border-color: var(--cyan); box-shadow: 0 0 10px rgba(0, 229, 255, 0.3); }
+
+/* =========================================
+   Top Grid (Vertical Cards)
+========================================= */
+.opp-grid-top { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-bottom: 24px; }
+
+.event-card-vertical {
+  height: 380px; border-radius: 16px; padding: 24px; display: flex; flex-direction: column; justify-content: space-between;
+  border: 1px solid var(--border-color); background-size: cover; background-position: center; position: relative; overflow: hidden;
+}
+/* Image Overlays / Gradients */
+.event-card-vertical::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(to bottom, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.9) 100%); z-index: 1;}
+.bg-sprint { background-image: url('https://images.unsplash.com/photo-1552674605-15c2145b9ce2?auto=format&fit=crop&q=80&w=800'); }
+.bg-swim { background-image: url('https://images.unsplash.com/photo-1519315901367-f34f89196b01?auto=format&fit=crop&q=80&w=800'); }
+.bg-lift { background-image: url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&q=80&w=800'); }
+
+.event-badges { position: relative; z-index: 2; display: flex; gap: 8px; }
+.badge { padding: 4px 10px; border-radius: 4px; font-size: 10px; font-weight: bold; letter-spacing: 1px; }
+.badge-green { background-color: var(--green); color: #000; }
+.badge-cyan { background-color: rgba(0, 229, 255, 0.2); color: var(--cyan); border: 1px solid var(--cyan); }
+
+.event-info { position: relative; z-index: 2; }
+.event-info h2 { font-size: 22px; margin-bottom: 12px; line-height: 1.2; }
+.event-info p { font-size: 12px; color: #ccc; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+.btn-outline-white { width: 100%; padding: 12px; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.3); color: white; border-radius: 8px; margin-top: 16px; cursor: pointer; font-weight: bold; backdrop-filter: blur(5px); transition: 0.3s;}
+.btn-outline-white:hover { background: rgba(255,255,255,0.2); }
+
+/* =========================================
+   Bottom Grid (Wide + Narrow)
+========================================= */
+.opp-grid-bottom { display: grid; grid-template-columns: 2fr 1fr; gap: 24px; }
+
+.wide-event-card {
+  border-radius: 16px; padding: 40px; display: flex; flex-direction: column; justify-content: center;
+  background: linear-gradient(to right, rgba(0,0,0,0.9) 20%, rgba(0,0,0,0.3) 100%), url('https://images.unsplash.com/photo-1577223625816-7546f13df25d?auto=format&fit=crop&q=80&w=1200') center/cover;
+  border: 1px solid var(--border-color); position: relative; overflow: hidden;
+}
+.wide-content { position: relative; z-index: 2; max-width: 500px; }
+.wide-content h1 { font-size: 36px; margin: 16px 0; }
+.wide-desc { font-size: 14px; line-height: 1.6; margin-bottom: 24px; }
+
+.prize-row { display: flex; gap: 40px; margin-bottom: 30px; }
+.label { font-size: 10px; color: var(--text-muted); font-weight: bold; letter-spacing: 1px; margin-bottom: 8px; }
+.prize-row h3 { font-size: 24px; margin: 0; }
+
+.btn-cyan-glow { padding: 16px 32px; background: var(--cyan); color: #000; border: none; border-radius: 8px; font-weight: bold; font-size: 14px; letter-spacing: 1px; cursor: pointer; box-shadow: 0 4px 15px rgba(0, 229, 255, 0.4); transition: 0.3s;}
+.btn-cyan-glow:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0, 229, 255, 0.6); }
+.btn-cyan-glow.registered { background: var(--green); box-shadow: 0 4px 15px rgba(0, 230, 118, 0.4); cursor: default; }
+
+/* Trajectory Card */
+.trajectory-card { display: flex; flex-direction: column; justify-content: space-between; }
+.trajectory-card h3 { font-size: 18px; margin-top: 0; margin-bottom: 24px; }
+.rating-box { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; }
+.rating-box h1 { font-size: 42px; margin: 0; }
+.bars-icon { display: flex; gap: 4px; align-items: flex-end; height: 30px; }
+.bars-icon .bar { width: 8px; background: #2a2e39; border-radius: 2px; }
+.b1 { height: 40%; background: var(--cyan); } .b2 { height: 60%; background: var(--cyan); }
+.b3 { height: 80%; background: var(--cyan); } .b4 { height: 100%; background: var(--cyan); box-shadow: 0 0 10px var(--cyan);}
+
+.progress-bar-container { width: 100%; height: 6px; background-color: var(--border-color); border-radius: 3px; }
+.progress-bar-fill { height: 100%; border-radius: 3px; box-shadow: 0 0 8px var(--green); }
+.bg-green { background-color: var(--green); }
+
+.btn-link { background: none; border: none; font-weight: bold; font-size: 10px; letter-spacing: 1px; cursor: pointer; padding: 0; margin-top: 20px; display: flex; align-items: center; gap: 8px;}
+.btn-link:hover { text-decoration: underline; }

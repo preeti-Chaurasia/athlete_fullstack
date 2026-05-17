@@ -1,0 +1,243 @@
+/* =========================================
+   Base Variables & Globals
+========================================= */
+:root {
+  --bg-dark: #0f1115;
+  --bg-card: #1c1f26;
+  --cyan: #00e5ff;
+  --green: #00e676;
+  --red: #ff5252;
+  --text-main: #ffffff;
+  --text-muted: #8a93a6;
+  --border-color: #2a2e39;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* =========================================
+   Main Layout & Profile Grid (The Fix)
+========================================= */
+.main-content {
+  padding-top: 30px;
+  padding-left: 40px;
+}
+
+/* Yahan layout ko lock kiya hai taaki boxes zyada na failein */
+.profile-grid {
+  display: grid !important;
+  grid-template-columns: 320px 1fr !important; /* Left column 320px, Right column bachi hui jagah */
+  gap: 40px !important; /* Dono columns ke beech ka gap */
+  width: 100% !important;
+  max-width: 1100px !important; /* Layout ko 1100px par rok diya */
+  margin-top: 20px;
+}
+
+/* =========================================
+   LEFT COLUMN: Identity Card
+========================================= */
+.profile-left-col {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+}
+
+.card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  width: 100%;
+}
+
+.identity-card {
+  text-align: center;
+  padding: 30px 20px;
+}
+
+.identity-avatar-container {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  margin: 0 auto 20px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #FF7A00, #1c1f26);
+  border: 2px solid var(--green);
+}
+
+.rank-badge {
+  position: absolute;
+  bottom: -10px;
+  right: -20px;
+  background-color: var(--green);
+  color: #000;
+  padding: 4px 10px;
+  font-size: 10px;
+  font-weight: bold;
+  border-radius: 4px;
+}
+
+.athlete-name { font-size: 24px; letter-spacing: 1px; margin-bottom: 5px; }
+.athlete-title { font-size: 12px; letter-spacing: 2px; font-weight: bold; margin-bottom: 24px; color: var(--cyan); }
+
+.identity-stats {
+  display: flex;
+  justify-content: space-around;
+  background-color: #22262e;
+  padding: 16px;
+  border-radius: 12px;
+  margin-bottom: 30px;
+}
+.identity-stats p { font-size: 10px; color: var(--text-muted); margin-bottom: 4px; }
+.identity-stats h3 { font-size: 20px; }
+
+.qr-section {
+  background-color: #22262e;
+  padding: 20px;
+  border-radius: 12px;
+  text-align: left;
+}
+.qr-header { display: flex; justify-content: space-between; font-size: 10px; font-weight: bold; color: var(--text-muted); margin-bottom: 15px; }
+.qr-box { background-color: white; padding: 10px; border-radius: 8px; text-align: center; margin-bottom: 15px; display: flex; justify-content: center; }
+.qr-box img { width: 100px; height: 100px; }
+.qr-desc { font-size: 11px; color: var(--text-muted); line-height: 1.4; text-align: center; }
+
+.connect-wearables {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  cursor: pointer;
+  background-color: #22262e;
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+}
+.connect-wearables h4 { font-size: 14px; margin-bottom: 4px; }
+.connect-wearables p { font-size: 11px; color: var(--text-muted); }
+.wearable-icon { color: var(--cyan); font-size: 24px; margin-right: 15px; }
+.arrow-right { color: var(--text-muted); font-size: 20px; }
+
+/* =========================================
+   RIGHT COLUMN: Forms & Data
+========================================= */
+.profile-right-col {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+}
+
+.profile-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 10px;
+}
+.profile-header h1 { font-size: 32px; margin-bottom: 5px; }
+.subtitle-text { color: var(--text-muted); font-size: 13px; }
+
+.profile-actions { display: flex; gap: 12px; }
+
+/* Form Grid - Fixes the floating boxes */
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Dono form cards ko 50-50 space dega */
+  gap: 24px;
+  width: 100%;
+}
+
+.form-card { 
+  padding: 24px; 
+  display: flex;
+  flex-direction: column;
+}
+
+.card-title { 
+  font-size: 16px; 
+  display: flex; 
+  align-items: center; 
+  gap: 8px; 
+  margin-bottom: 20px; 
+  border-bottom: 1px solid var(--border-color); 
+  padding-bottom: 12px;
+}
+
+label {
+  display: block;
+  font-size: 10px;
+  color: var(--text-muted);
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+  margin-top: 16px;
+  text-transform: uppercase;
+}
+
+.form-input {
+  width: 100%;
+  background-color: #22262e;
+  border: 1px solid var(--border-color);
+  color: white;
+  padding: 12px 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  outline: none;
+  transition: border 0.3s;
+}
+.form-input:focus { border-color: var(--cyan); }
+
+.form-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+/* Biometrics Section */
+.biometrics-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 24px;
+}
+.input-with-unit {
+  background-color: #22262e;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+}
+.naked-input { border: none; background: transparent; padding: 12px 0; font-size: 20px; font-weight: bold; width: 100%; color: white;}
+.naked-input:focus { border: none; outline: none;}
+.unit { color: var(--text-muted); font-size: 14px; }
+
+/* Injury Log */
+.card-header-flex { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-color); padding-bottom: 12px; margin-bottom: 20px; }
+.card-header-flex .card-title { border: none; margin: 0; padding: 0; }
+.btn-text { background: none; border: none; font-weight: bold; cursor: pointer; font-size: 12px;}
+
+.injury-list { display: flex; flex-direction: column; gap: 16px; }
+.injury-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  border-radius: 8px;
+  background-color: #22262e;
+}
+.injury-icon { width: 40px; height: 40px; border-radius: 8px; display: flex; justify-content: center; align-items: center; font-size: 20px; flex-shrink: 0;}
+.bg-red-light { background-color: rgba(255, 82, 82, 0.1); }
+.bg-green-light { background-color: rgba(0, 230, 118, 0.1); }
+.injury-details { flex-grow: 1; }
+.injury-details h4 { font-size: 14px; margin-bottom: 4px; }
+.injury-details p { font-size: 11px; color: var(--text-muted); }
+.edit-icon { color: var(--text-muted); cursor: pointer; font-size: 16px;}
+.edit-icon:hover { color: white; }
+
+/* Buttons Utilities */
+.btn-primary { background-color: var(--cyan); color: #000; border: none; padding: 10px 24px; border-radius: 8px; font-weight: bold; cursor: pointer; transition: 0.2s;}
+.btn-primary:hover { background-color: #00b8cc; }
+.btn-secondary { background-color: transparent; color: white; border: 1px solid var(--border-color); padding: 10px 24px; border-radius: 8px; font-weight: bold; cursor: pointer; }
+.btn-secondary:hover { background-color: rgba(255,255,255,0.05); }
+.text-cyan { color: var(--cyan); }
+.text-green { color: var(--green); }
+.text-red { color: var(--red); }

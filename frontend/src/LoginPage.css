@@ -1,0 +1,148 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+.container {
+  display: flex;
+  height: 100vh;
+  background: #0b0f14;
+  color: white;
+}
+
+/* LEFT SIDE */
+.left {
+  flex: 1;
+  padding: 60px;
+  background: linear-gradient(135deg, #1c2b2e, #0b0f14);
+}
+
+.logo {
+  color: #00e6d0;
+  margin-bottom: 30px;
+}
+
+.title {
+  font-size: 48px;
+  line-height: 1.2;
+}
+
+.title span {
+  color: #00e6d0;
+}
+
+.subtitle {
+  margin-top: 20px;
+  color: #aaa;
+  max-width: 400px;
+}
+
+.card {
+  margin-top: 40px;
+  padding: 20px;
+  background: #1a222b;
+  border-radius: 12px;
+  width: 250px;
+}
+
+.card p {
+  color: #aaa;
+  font-size: 12px;
+}
+
+.card h2 {
+  margin: 10px 0;
+}
+
+.progress {
+  height: 5px;
+  background: linear-gradient(to right, #00e6d0 70%, #333 70%);
+  border-radius: 5px;
+}
+
+/* RIGHT SIDE */
+.right {
+  flex: 1;
+  padding: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.desc {
+  color: #aaa;
+  margin-bottom: 30px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+form label {
+  margin: 10px 0 5px;
+  font-size: 14px;
+}
+
+form input {
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  background: #1a222b;
+  color: white;
+}
+
+.btn {
+  margin-top: 20px;
+  padding: 14px;
+  background: #00e6d0;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.divider {
+  margin: 20px 0;
+  text-align: center;
+  color: #666;
+}
+
+.google-btn {
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+  background: #2a2a2a;
+  color: white;
+  cursor: pointer;
+}
+
+.apply {
+  margin-top: 20px;
+  color: #aaa;
+}
+
+.apply span {
+  color: #00e6d0;
+  cursor: pointer;
+}
+
+/* Guest Button Styling */
+.guest-btn {
+  margin-top: 15px;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #00e6d0; /* Cyan border */
+  background: transparent;
+  color: #00e6d0;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.guest-btn:hover {
+  background: rgba(0, 230, 208, 0.1);
+  box-shadow: 0 0 15px rgba(0, 230, 208, 0.2);
+}
