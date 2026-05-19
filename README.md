@@ -164,18 +164,6 @@ Google Gemini 2.5 Flash (`gemini-2.5-flash`)
 - Frontend → Vercel  
 - Backend → Render  
 - Database → Neon PostgreSQL  
-
----
-
-# 👩‍💻 Team Contributions
-
-| Name | Role | Contribution |
-|------|------|--------------|
-| Preeti | AI Engineer | Built AI Coach using MediaPipe and motion analysis logic |
-| Aasmi Talaviya | AI & Backend Developer | Implemented Voice-Based Injury Risk Prediction System using Azure Services, built custom ML-based injury using formula,backend APIs and integrated database|
-| Hema | AI Developer | Implemented Gemini-based AI Diet Generator with structured JSON rendering |
-| Dharmi | Full Stack Developer | Designed complete frontend, UI/UX, login system, API integration, and deployment |
-
 ---
 
 # ⚙️ Installation & Setup
